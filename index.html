@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            border: 2px solid brown;
+            display: grid;
+            place-items: center;
+            background-color: antiquewhite;
+            }
+        #conjunto{
+            background-color: burlywood;
+            border-radius: 10px;
+                }
+        h1{
+            text-align: center;
+            margin-top: 10px;
+        }        
+        #input{
+            display: grid;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        input{
+            margin: 10px 10px;
+        }
+        p{
+            font-size: 100px;
+            margin: 0 20vh;
+         }
+    </style>
+</head>
+<body>
+    <div id="conjunto">
+        <h1>Contador</h1>
+        <p id="txcont">0</p>
+        <div id="input">
+            <input type="button" value="Diminuir" id="sub" >
+            <input type="button" value="Zerar" id="reset">
+            <input type="button" value="Aumentar" id="soma">
+        </div>
+    </div>
+    <script>
+        var txcont = document.querySelector('p#txcont')
+        var cont = 0
+        var diminuir = document.querySelector('input#sub')
+        var zerar = document.querySelector('input#reset')
+        var aumentar = document.querySelector('input#soma')
+        diminuir.addEventListener('click', acdim)
+        zerar.addEventListener('click',aczer)
+        aumentar.addEventListener('click',acaum)
+        function acdim(){
+             cont--
+            txcont.innerHTML=`${cont}`
+            if(cont<0){
+                txcont.style.color='red'
+            }else if(cont==0){
+                txcont.style.color='black'
+            }else{
+                txcont.style.color='green'
+            }
+        } 
+        function aczer(){
+            cont = 0
+            txcont.innerHTML=`${cont}`
+            if(cont<0){
+                txcont.style.color='red'
+            }else if(cont==0){
+                txcont.style.color='black'
+            }else{
+                txcont.style.color='green'
+            }    
+        }
+        function acaum(){
+            cont++
+            txcont.innerHTML=`${cont}`
+            if(cont<0){
+                txcont.style.color='red'
+            }else if(cont==0){
+                txcont.style.color='black'
+            }else{
+                txcont.style.color='green'
+            }
+        }
+    </script>
+</body>
+</html>
